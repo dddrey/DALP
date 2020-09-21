@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    = csrf_meta_tags
+    = csp_meta_tag
+    = metamagic
+    = stylesheet_pack_tag 'dulp_app', media: 'all'
+    = javascript_pack_tag 'dulp_app'
+    / - if Rails.env.production?
+      = render 'shared/ga'
+
+  body
+    / = render 'shared/header'
+    .content
+      = yield
+    / = render 'shared/footer'

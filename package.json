@@ -2,9 +2,19 @@
   "name": "DALP",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5"
+    "@rails/webpacker": "3.5",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.5.2",
+    "react-share": "^4.2.1",
+    "react-text-mask": "^5.4.3",
+    "react-textarea-autosize": "^7.1.2",
+    "vanilla-lazyload": "^17.1.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "2.11.2"
+    "clean-webpack-plugin": "^3.0.0"
   }
 }
