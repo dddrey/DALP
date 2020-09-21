@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password:
+
+host: localhost
+
+development:
+  <<: *default
+  database: DULP_development
+  port: 5433
+
+test:
+  <<: *default
+  database: DULP_test
+  port: 5433
+
+production:
+  <<: *default
+  database: DULP_production
+  username: <%= ENV['DULP_DATABASE_USERNAME'] %>
+  password: <%= ENV['DULP_DATABASE_PASSWORD'] %>
