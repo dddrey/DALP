@@ -1,0 +1,26 @@
+ru:
+  boolean:
+    true: Да
+    false: Нет
+  activerecord:
+    errors:
+      messages:
+        record_invalid: Запись некорректна
+        blank: не может быть пустым
+        not_a_number: не число
+        less_than_or_equal_to: не может быть больше
+        greater_than_or_equal_to: не может быть меньше
+    attributes:
+      user:
+        last_name: Фамилия
+        first_name: Имя
+        middle_name: Отчество
+        birth_date: Дата рождения
+        city: Город проживания
+        education: Образование (включая специализацию, дополнительное образование,  стажировки)
+        arab_study: 'Изучение арабского языка: укажите, где и когда вы изучали арабский язык'
+        movement_help: Требуется ли вам помощь в передвижении
+        email: E-mail
+        phone: Телефон
+        social_links: Ссылки на социальные сети
+        competition_source: Откуда вы узнали о конкурсе?
