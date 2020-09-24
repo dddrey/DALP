@@ -10,6 +10,8 @@ html
       = render 'shared/ga'
 
   body
+    p.notice = notice
+    p.alert = alert
     / = render 'shared/header'
     .content
       = yield
