@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/registration', to: 'registration#new'
   get '/registration/success', to: 'registration#success'
   post '/registration', to: 'registration#create'
+
+  get 'test', to: 'test#test'
 end
