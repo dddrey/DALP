@@ -8,13 +8,17 @@ class RegistrationController < ApplicationController
 
     if @user.update_attributes(user_params)
       flash[:notice] = 'успех'
-      redirec_to 'registration/success'
+      redirec_to 'registration/finished'
     else
       render :new
     end
   end
 
-  def success
+  def before
+
+  end
+
+  def finished
 
   end
 

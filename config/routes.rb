@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get '/arab', to: 'homepage#arab'
 
   get '/registration', to: 'registration#new'
-  get '/registration/success', to: 'registration#success'
+  get '/registration/finished', to: 'registration#finished'
+  get '/registration/before', to: 'registration#before'
   post '/registration', to: 'registration#create'
 
-  get 'test', to: 'test#test'
+  get '/test', to: 'test#test'
+  get '/test/finished', to: 'test#finished'
 end
