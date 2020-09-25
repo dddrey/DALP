@@ -11,4 +11,11 @@ Rails.application.routes.draw do
 
   get '/test', to: 'test#test'
   get '/test/finished', to: 'test#finished'
+
+  namespace :admin do
+    root to: 'admin/tests#index'
+
+    resources :tests
+
+  end
 end
