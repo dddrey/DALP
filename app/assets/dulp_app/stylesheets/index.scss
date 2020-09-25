@@ -1,3 +1,5 @@
-body {
-  background: wheat;
-}
+@import 'components/variables';
+@import 'components/mixins';
+@import 'components/layout';
+@import 'components/forms';
+@import 'components/typography';
