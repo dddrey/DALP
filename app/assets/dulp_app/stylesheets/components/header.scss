@@ -1,0 +1,129 @@
+header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	font-weight: 500;
+
+	@include respond-to(medium) {
+		justify-content: space-between;
+	}
+
+	> nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		width: 100%;
+		max-width: 600px;
+		margin: auto;
+		text-align: center;
+		margin-bottom: $grid*3;
+
+		@include respond-to(medium) {
+			order: 1;
+			width: auto;
+			margin: 0;
+			font-size: .8rem;
+		}
+
+		> a {
+			width: 100%;
+			border-bottom: 2px solid $color-main;
+			padding-bottom: $grid/4;
+			margin-bottom: $grid/4;
+
+			@include respond-to(medium) {
+				width: auto;
+				border-bottom: 0;
+				padding: 0;
+				margin-right: $grid/2;
+			}
+
+			&:last-child {
+				border-bottom: 0;
+				padding: 0;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	> .lang {
+		text-transform: uppercase;
+		margin-bottom: $grid*3;
+		font-size: .8rem;
+		letter-spacing: 1.3px;
+		width: 100%;
+		text-align: center;
+
+		@include respond-to(medium) {
+			order: 2;
+			width: auto;
+		}
+
+		> span {
+			color: $color-red;
+			padding: 0 $grid/4;
+		}
+
+		> a {
+			color: $color-main;
+			padding: 0 $grid/4;
+
+			&:hover {
+				color: $color-red;
+			}
+		}
+	}
+
+	> .logo {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		margin-bottom: $grid*3;
+		width: 100%;
+
+		@include respond-to(medium) {
+			order: 3;
+		}
+
+		> .wrapper {
+			text-align: center;
+			width: 100%;
+			margin: auto;
+			max-width: 600px;
+
+			@include respond-to(medium) {
+				max-width: 800px;
+			}
+
+			> h1 {
+				color: $color-red;
+				margin-bottom: 0;
+			}
+
+			> .image {
+				margin-bottom: $grid/2;
+			}
+
+			> div {
+				line-height: 1.2rem;
+				text-align: center;
+
+				@include respond-to(medium) {
+					font-size: 1.5rem;
+					line-height: 1.6rem;
+				}
+			}
+
+			> .button {
+				margin-top: $grid;
+
+				@include respond-to(medium) {
+					width: auto;
+				}
+			}
+		}
+	}
+}

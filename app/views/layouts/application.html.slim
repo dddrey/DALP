@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    = csrf_meta_tags
+    = csp_meta_tag
+    = metamagic
+    = stylesheet_pack_tag 'dulp_app', media: 'all'
+    = javascript_pack_tag 'dulp_app'
+    <meta content='width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1' name='viewport'>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:site' content='@easteastmag'>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Doha Arabic Language Prize 2020">
+    <meta name="referrer" content="origin">
+    <meta name="apple-mobile-web-app-title" content="Doha Arabic Language Prize 2020">
+
+    title Doha Arabic Language Prize 2020
+    / - if Rails.env.production?
+      = render 'shared/ga'
+
+  body
+    p.notice = notice
+    p.alert = alert
+    / = render 'shared/header'
+    .content
+      = yield
+    / = render 'shared/footer'

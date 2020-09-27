@@ -5,29 +5,29 @@ $color-grey-button: #dddddd;
 $color-grey-button-hover: #c1c1c1;
 $color-grey-light: #e1e1e1;
 $color-grey-dark: #919191;
-$color-orange: #FF6701;
+$color-red: #8D1B3D;
 
 $main-font-family: 'MabryPro', -apple-system, BlinkMacSystemFont, HelveticaNeue, Helvetica, Roboto, Arial, sans-serif;
-$arabic-font-family: 'CSTMX Title', -apple-system, BlinkMacSystemFont, HelveticaNeue, Helvetica, Roboto, Arial, sans-serif;
+$arabic-font-family: -apple-system, BlinkMacSystemFont, HelveticaNeue, Helvetica, Roboto, Arial, sans-serif;
 
 $grid: 20px;
 $sizeXXL:       1380px;
 $sizeXL:        1280px;
 $sizeL:         1024px;
-$sizeM:         768px;
+$sizeM:         798px;
 $sizeS:         320px;
 
 $sizeMax:       $sizeXXL;
 
 $row-width-s:     90%;
-$row-width-m:     740px;
+$row-width-m:     760px;
 $row-width-l:     964px;
 $row-width-xl:    1180px;
 $row-width-xxl:   1332px;
 
 
 $width-content-large: 800px;
-$width-content-medium: 500px;
+$width-content-medium: 600px;
 $width-content-small: 280px;
 
 $base-transition-style: cubic-bezier(0.660, 0.000, 0.070, 1.000);
