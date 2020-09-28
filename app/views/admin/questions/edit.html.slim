@@ -13,7 +13,7 @@
           br
           br
           br
-
+          label.string.required.control-label.col-sm-2 style="text-align: right; max-width: 800px;" for="question_Question" Answers:
           - @question.answers.order(order: :desc).each do |answer|
             = f.simple_fields_for :answers, answer do |answr|
               .answer-block
