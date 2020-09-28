@@ -1,11 +1,15 @@
+header.header-main
+	.logo.logo-secondary
+		.wrapper
+			.image
+				img src="/dalp_logo.svg"
+			h1 Тест
 /      1/100 и время выводим пока что рыбой
 
-label Question:
-| &nbsp;&nbsp;
-span = @question.text
-br
-label Answers:
-.answers
-  - @answers.each do |answer|
-    .answer style="#{answer.right ? 'color: red;' : ''}"
-      span = answer.text
+.test-container
+	.question-number 1/100
+	.timer 58:25
+	.question.arab= @question.text
+	.answers.arab
+	  - @answers.each do |answer|
+	    .answer style="#{answer.right ? 'color: red;' : ''}" = answer.text

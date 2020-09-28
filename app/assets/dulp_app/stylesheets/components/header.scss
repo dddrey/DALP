@@ -93,6 +93,10 @@ header {
 			order: 3;
 		}
 
+		&.logo-secondary {
+			// margin-top: $grid;
+		}
+
 		> .wrapper {
 			text-align: center;
 			width: 100%;
