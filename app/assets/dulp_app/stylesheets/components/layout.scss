@@ -78,6 +78,11 @@ ol {
   padding: 0;
 }
 
+.arab {
+  font-family: BlinkMacSystemFont, HelveticaNeue, Helvetica, Roboto, Arial, sans-serif!important;
+  direction:rtl;
+}
+
 .video {
   margin: auto;
   margin-bottom: $grid*3;
@@ -101,6 +106,12 @@ p {
 
   > a {
     text-decoration: underline;
+  }
+}
+
+.arab {
+  > .block p {
+    text-align: right;
   }
 }
 
