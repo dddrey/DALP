@@ -1,4 +1,5 @@
 .test style='max-width: 600px; margin: 0 auto;'
+  h1 = @test.title
   - @test.questions.order(order: :asc).each do |q|
     / div style='text-align: right;' = "#{q.text} – #{q.order}"
     .question-block style='border: 1px solid black; padding: 5px;'
