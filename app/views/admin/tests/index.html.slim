@@ -1,2 +1,21 @@
-h1 Admin::Tests#index
-p Find me in app/views/admin/tests/index.html.slim
+- content_for :header do
+  .ibox-tools
+
+/ - content_for :table_header do
+  tr
+    th.text-left= 'Title'
+    th.text-left= 'Description'
+    th.text-right= 'Actions'
+
+- content_for :table_body do
+  - if @tests.any?
+    - @tests.each do |test|
+      = link_to test.title, admin_test_path(test)
+      br
+      br
+  - else
+    tr.empty-row
+      td.text-left colspan='4'
+        | There're no tests.
+
+= render partial: 'admin/shared/index_table'

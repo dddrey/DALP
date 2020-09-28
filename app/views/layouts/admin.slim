@@ -1,16 +1,15 @@
 doctype html
 html
   head
-    title
-      | (DULP) Admin
+    title (DALP) Admin
     = csrf_meta_tags
     = csp_meta_tag
-    / = stylesheet_pack_tag 'ee_admin'
-    / = javascript_pack_tag 'ee_admin'
+    = stylesheet_pack_tag 'dulp_admin'
+    = javascript_pack_tag 'dulp_admin'
   body style="#{Rails.env.development? ? 'background-color: #E7EEF0;' : ''}"
     .page-wrapper
-      / = render 'admin/shared/navigation'
+      = render 'admin/shared/navigation'
       #page-wrapper.gray-bg
-        / = render 'admin/shared/topnavbar'
-        / = render 'shared/notices'
+        = render 'admin/shared/topnavbar'
+        = render 'shared/notices'
         = yield

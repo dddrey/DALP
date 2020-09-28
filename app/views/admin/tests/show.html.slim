@@ -1,2 +1,19 @@
-h1 Admin::Tests#show
-p Find me in app/views/admin/tests/show.html.slim
+.test style='max-width: 600px; margin: 0 auto;'
+  - @test.questions.order(order: :asc).each do |q|
+    / div style='text-align: right;' = "#{q.text} – #{q.order}"
+    .question-block style='border: 1px solid black; padding: 5px;'
+      / div = "ID: #{q.id}"
+      = link_to 'Edit', edit_admin_question_path(q), target: '_blank', style: 'text-decoration: underline;'
+      .question style='text-align: right; display: flex; justify-content: flex-end;'
+        div = "#{q.text}"
+        h3 style='margin: 0;' = "&nbsp;&nbsp;–&nbsp;&nbsp;#{q.order}".html_safe
+      br
+      .answers style='display: flex; justify-content: space-between;'
+        - q.answers.order(order: :desc).each do |a|
+          div
+            span style="#{a.right ? 'color: red;' : ''}" = a.text
+            / br
+            / br
+            / span = "ID: #{a.id}"
+    br
+

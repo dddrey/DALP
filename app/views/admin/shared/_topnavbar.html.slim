@@ -1,0 +1,11 @@
+/ .row.border-bottom
+/   nav.navbar.navbar-static-top.white-bg role = 'navigation' style = 'margin-bottom: 0'
+/     ul.nav.navbar-top-links.navbar-right
+/       / li
+/       /   = link_to root_path do
+/       /     i.fa.fa-mail-forward
+/       /     | На сайт
+/       li
+/         = link_to destroy_admin_session_path, method: :delete do
+/           i.fa.fa-sign-out
+/           | Выход

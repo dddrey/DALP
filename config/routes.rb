@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     root to: 'admin/tests#index'
 
     resources :tests
+    resources :questions
 
   end
 end

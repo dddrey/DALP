@@ -1,0 +1,23 @@
+.wrapper.wrapper-content
+  .row
+    .col-lg-12
+      .ibox
+        - if content_for? :header
+          .ibox-title
+            = content_for :header
+        .ibox-content
+          - if content_for? :search_form
+            = content_for :search_form
+          .projects-list
+            table.table.table-hover
+              - if content_for? :table_header
+                thead
+                  = content_for :table_header
+              - if content_for? :table_body
+                tbody class=(body_class if defined?(body_class)) id="#{defined?(body_id) ? body_id : ''}#{['admin/posts', 'admin/categories'].include?(params[:controller]) ? 'sortable-body' : ''}"
+
+                  = content_for :table_body
+
+          - if content_for? :paginator
+            .text-center
+              = content_for :paginator
