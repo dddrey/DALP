@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/test', to: 'test#test'
   get '/test/finished', to: 'test#finished'
 
+  get '/admin', to: redirect('/admin/tests')
+
   namespace :admin do
     root to: 'admin/tests#index'
 
