@@ -6,8 +6,8 @@ header.header-main
       h1 Регистрация
 .block
   = simple_form_for(@user, url: registration_path, method: 'POST') do |f|
-    = f.error_notification
-    = @user.errors.full_messages
+    / = f.error_notification
+    / = @user.errors.full_messages
     .form-inputs
       = f.input :last_name, required: true
       = f.input :first_name, required: true
@@ -23,7 +23,7 @@ header.header-main
       = f.input :competition_source
 
     .form-actions
-      label «согласен с условиями конкурса»
       input value='0' type='checkbox'
+      label Согласен с условиями конкурса
       / = f.button :submit, "ОК", class: "authorization-button", disabled: true
-      = f.button :submit, "ОК", class: "authorization-button"
+      = f.button :submit, "Зарегистрироваться", class: "authorization-button"

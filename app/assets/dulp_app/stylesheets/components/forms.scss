@@ -6,6 +6,7 @@ input, textarea {
   border-radius: 0;
   background: white;
   border: 0;
+  border: 2px solid $color-main;
   resize: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -95,32 +96,52 @@ button:focus {
   }
 }
 
-.load-more-wrapper,
-.load-previous-wrapper {
-  display: flex;
-  justify-content: center;
+.form-inputs {
+  text-align: left;
 
-  width: 100%;
+  > .input {
+    display: flex;
+    flex-wrap: wrap;
 
-  .button-load-more,
-  .button-load-previous {
-    font-size: 1rem;
-    padding: $grid;
-    margin-bottom: $grid/2*5;
-    text-transform: uppercase;
-    overflow-anchor: none;
-    line-height: .8;
-    width: 100%;
-    text-align: center;
+    margin-bottom: $grid;
 
-    @include respond-to(small) {
-      font-size: 1.2rem;
-      margin-bottom: $grid*5;
-      width: auto;
+    > label {
+      width: 100%;
+      margin-bottom: $grid/2;
+      font-size: .8rem;
+      line-height: .9rem;
+    }
+
+    > input,
+    > textarea {
+      width: 100%;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    > input[type=button] {
+      width: 100%;
     }
   }
 }
 
-.button-load-previous {
-  margin-bottom: $grid*2;
+.form-actions {
+  text-align: left;
+  margin-top: $grid*2;
+
+  input[type=checkbox] {
+    margin-right: $grid/3;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    margin-top: $grid/2;
+  }
+
+  label {
+    width: 100%;
+    margin-bottom: $grid/2;
+    font-size: .8rem;
+    line-height: .9rem;
+  }
 }

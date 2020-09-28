@@ -154,6 +154,11 @@ ol {
   }
 }
 
+.label-for-later {
+  text-align: left;
+  margin-bottom: $grid/2;
+}
+
 p {
   margin-top: 0;
   line-height: 1.2rem;
@@ -161,6 +166,11 @@ p {
 
   > a {
     text-decoration: underline;
+  }
+
+  &.link-for-later {
+    border: 2px solid $color-main;
+    padding: $grid/2;
   }
 }
 
@@ -175,6 +185,19 @@ p {
   margin-bottom: $grid*3;
   max-width: 600px;
   text-align: center;
+
+  &.block-secondary {
+    @include respond-to(medium) {
+      border: 2px solid $color-main;
+      padding: $grid/2;
+    }
+
+    > .button {
+      @include respond-to(medium) {
+        margin-top: $grid;
+      }
+    }
+  }
 
   > .button {
     margin-top: 4px;
