@@ -1,22 +1,29 @@
-= simple_form_for(@user, url: registration_path, method: 'POST') do |f|
-  = f.error_notification
-  = @user.errors.full_messages
-  .form-inputs
-    = f.input :last_name, required: true
-    = f.input :first_name, required: true
-    = f.input :middle_name
-    = f.input :birth_date, as: :date, html5: true
-    = f.input :city, required: true
-    = f.input :education, required: true
-    = f.input :arab_study
-    = f.input :movement_help
-    = f.input :email, required: true, input_html: { autocomplete: "email" }
-    = f.input :phone, required: true, input_html: { autocomplete: "phone" }
-    = f.input :social_links
-    = f.input :competition_source
+header.header-main
+  .logo.logo-secondary
+    .wrapper
+      .image
+        img src="/dalp_logo.svg"
+      h1 Регистрация
+.block
+  = simple_form_for(@user, url: registration_path, method: 'POST') do |f|
+    = f.error_notification
+    = @user.errors.full_messages
+    .form-inputs
+      = f.input :last_name, required: true
+      = f.input :first_name, required: true
+      = f.input :middle_name
+      = f.input :birth_date, as: :date, html5: true
+      = f.input :city, required: true
+      = f.input :education, required: true
+      = f.input :arab_study
+      = f.input :movement_help
+      = f.input :email, required: true, input_html: { autocomplete: "email" }
+      = f.input :phone, required: true, input_html: { autocomplete: "phone" }
+      = f.input :social_links
+      = f.input :competition_source
 
-  .form-actions
-    label «согласен с условиями конкурса»
-    input value='0' type='checkbox'
-    / = f.button :submit, "ОК", class: "authorization-button", disabled: true
-    = f.button :submit, "ОК", class: "authorization-button"
+    .form-actions
+      label «согласен с условиями конкурса»
+      input value='0' type='checkbox'
+      / = f.button :submit, "ОК", class: "authorization-button", disabled: true
+      = f.button :submit, "ОК", class: "authorization-button"
