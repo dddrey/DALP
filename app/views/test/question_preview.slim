@@ -1,0 +1,11 @@
+/      1/100 и время выводим пока что рыбой
+
+label Question:
+| &nbsp;&nbsp;
+span = @question.text
+br
+label Answers:
+.answers
+  - @answers.each do |answer|
+    .answer style="#{answer.right ? 'color: red;' : ''}"
+      span = answer.text

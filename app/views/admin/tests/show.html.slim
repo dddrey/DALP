@@ -3,7 +3,9 @@
     / div style='text-align: right;' = "#{q.text} – #{q.order}"
     .question-block style='border: 1px solid black; padding: 5px;'
       / div = "ID: #{q.id}"
-      = link_to 'Edit', edit_admin_question_path(q), target: '_blank', style: 'text-decoration: underline;'
+      = link_to 'Edit'.html_safe, edit_admin_question_path(q), target: '_blank', style: 'text-decoration: underline;'
+      |  &nbsp;&nbsp;&nbsp;
+      = link_to 'Preview', "/questions/#{q.id}", target: '_blank', style: 'text-decoration: underline;'
       .question style='text-align: right; display: flex; justify-content: flex-end;'
         div = "#{q.text}"
         h3 style='margin: 0;' = "&nbsp;&nbsp;–&nbsp;&nbsp;#{q.order}".html_safe
