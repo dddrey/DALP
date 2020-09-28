@@ -27,7 +27,8 @@ header {
 			font-size: .8rem;
 		}
 
-		> a {
+		> span {
+			cursor: pointer;
 			width: 100%;
 			border-bottom: 2px solid $color-main;
 			padding-bottom: $grid/4;
@@ -38,6 +39,10 @@ header {
 				border-bottom: 0;
 				padding: 0;
 				margin-right: $grid/2;
+			}
+
+			&:hover {
+				color: $color-red;
 			}
 
 			&:last-child {
