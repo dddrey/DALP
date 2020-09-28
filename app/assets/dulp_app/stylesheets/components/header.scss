@@ -94,7 +94,12 @@ header {
 		}
 
 		&.logo-secondary {
-			// margin-top: $grid;
+			margin-bottom: $grid;
+
+			@include respond-to(medium) {
+				margin-top: $grid;
+				margin-bottom: $grid*3;
+			}
 		}
 
 		> .wrapper {

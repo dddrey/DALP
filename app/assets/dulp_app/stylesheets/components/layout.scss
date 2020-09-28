@@ -118,8 +118,12 @@ ol {
   > .question {
     font-size: 1.2rem;
     width: 100%;
-    margin-top: $grid*3;
+    margin-top: $grid;
     margin-bottom: $grid/2;
+
+    @include respond-to(medium) {
+      margin-top: $grid*3;
+    }
   }
 
   > .answers {
@@ -131,8 +135,21 @@ ol {
 
     > .answer {
       border: 2px solid $color-main;
+      color: $color-main;
+      cursor: pointer;
       padding: $grid/4 $grid/2;
-      margin-left: $grid/2;
+      margin-bottom: $grid/2;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include respond-to(medium) {
+        margin-bottom: 0;
+        margin-left: $grid/2;
+        width: auto;
+      }
     }
   }
 }
