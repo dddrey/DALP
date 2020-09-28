@@ -9,6 +9,10 @@
 
 - content_for :table_body do
   - if @tests.any?
+    br
+    br
+    br
+    br
     - @tests.each do |test|
       = link_to test.title, admin_test_path(test)
       br
