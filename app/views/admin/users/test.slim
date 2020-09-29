@@ -1,0 +1,18 @@
+.test style='max-width: 600px; margin: 0 auto;'
+  h2 = @user.full_name
+  h3 = "Закончил: #{@questions.where(answered: true).count} из 100"
+  h3 = "Результат: #{@questions.where(answered_right: true).count} из 100"
+  br
+  - @questions.each do |q|
+    .question-block style='border: 1px solid black; padding: 5px;'
+      .question style='text-align: right; display: flex; justify-content: flex-end;'
+        div = "#{q.text}"
+        h3 style='margin: 0;' = "&nbsp;&nbsp;–&nbsp;&nbsp;#{q.order}".html_safe
+      br
+      .answers style='display: flex; justify-content: space-between;'
+        - q.answers.order(order: :desc).each do |a|
+          - is_right = a.id == q.user_answered_id
+          div
+            span style="#{a.right ? 'color: red;' : ''}" = "#{is_right == true ? '(' + a.text + ')' : a.text}"
+    br
+

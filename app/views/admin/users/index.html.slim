@@ -1,0 +1,38 @@
+- content_for :header do
+  .ibox-tools
+
+- content_for :table_header do
+  tr
+    th.text-left= 'ФИО'
+    th.text-left= 'Email'
+    th.text-left= 'Телефон'
+    th.text-left= 'Дата рождения'
+    th.text-left= 'Город'
+    th.text-left= 'Образование'
+    th.text-left= 'Изучение арабского'
+    th.text-left= 'Помощь в передвижении'
+    th.text-left= 'Соц. сети'
+    th.text-left= 'Откуда узнали'
+    th.text-left= 'Тест'
+
+- content_for :table_body do
+  - if @users.any?
+    - @users.each do |user|
+      tr
+        td = user.full_name
+        td = user.email
+        td = user.phone
+        td = user.birth_date
+        td = user.city
+        td = user.education
+        td = user.arab_study
+        td = user.movement_help
+        td = user.social_links
+        td = user.competition_source
+        td = link_to user.test.id, test_admin_user_path(user.id), style: 'text-decoration: underline;'
+  - else
+    tr.empty-row
+      td.text-left colspan='4'
+        | There're no users.
+
+= render partial: 'admin/shared/index_table'
