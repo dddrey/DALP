@@ -1,7 +1,8 @@
 class AdminController < ActionController::Base
   layout 'admin'
 
-  before_action :authorize_admin!, :set_locale
+  before_action :authorize_admin!
+  # before_action :authorize_admin!, :set_locale
 
   private
 
