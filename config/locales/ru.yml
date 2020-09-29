@@ -5,18 +5,20 @@ ru:
   activerecord:
     errors:
       messages:
-        record_invalid: запись некорректна
-        blank: не может быть пустым
-        not_a_number: не число
-        less_than_or_equal_to: не может быть больше
-        greater_than_or_equal_to: не может быть меньше
+        record_invalid: Запись некорректна
+        blank: Не может быть пустым
+        not_a_number: Не число
+        less_than_or_equal_to: Не может быть больше
+        greater_than_or_equal_to: Не может быть меньше
       models:
         user:
           attributes:
             email:
-              invalid: запись некорректна
+              invalid: Запись некорректна
+              taken: Уже зарегистрирован в системе
             phone:
-              invalid: запись некорректна
+              invalid: Запись некорректна
+              taken: Уже зарегистрирован в системе
 
     attributes:
       user:
