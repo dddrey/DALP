@@ -14,7 +14,7 @@ header.header-main
       = f.input :city, required: true
       = f.input :education, required: true
       = f.input :arab_study
-      = f.input :movement_help
+      = f.input :movement_help , as: :radio_buttons, collection: [['Да', true], ['Нет', false]], checked: 0
       = f.input :email, required: true, input_html: { autocomplete: "email" }
       = f.input :phone, required: true, input_html: { autocomplete: "phone" }
       = f.input :social_links
