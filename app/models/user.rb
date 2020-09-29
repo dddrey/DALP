@@ -6,6 +6,8 @@ class User < ApplicationRecord
   # devise :registerable, :rememberable, :validatable
   devise :registerable, :rememberable, remember_for: 6.months
 
+  has_one :test, foreign_key: 'user_id', class_name: 'UserTest'
+
   validates_presence_of :last_name, :first_name, :birth_date, :city, :education
 
   validates :phone, presence: true, uniqueness: true

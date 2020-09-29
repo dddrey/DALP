@@ -10,6 +10,15 @@ class TestController < ApplicationController
     end
 
     redirect_to root_path if current_user.nil?
+
+    @test = current_user.test
+    if @test.nil?
+      @test = UserTest.create(user_id: current_user.id)
+      @test.generate
+      @test.update(start_at: Time.now, end_at: Time.now + 1.hour)
+    elsif @test.finished?
+      redirect_to test_finished_path
+    end
   end
 
   def finished
