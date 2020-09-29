@@ -6,5 +6,5 @@ header.header-main
 			h1 Вы успешно зарегистрировались
 .block.block-secondary
 	.label-for-later Если вы хотите пройти тест позже, сохраните себе ссылку:
-	p.link-for-later onclick="document.execCommand('copy');"  dalp.online/dsada2e1asdsa
-	a.button href="/questions/1" Пройти тест сейчас
+	p.link-for-later onclick="document.execCommand('copy');" = "https://dalp.online/test?t=#{params[:t]}"
+	= link_to 'Пройти тест сейчас', test_path(t: params[:t]), class: 'button'

@@ -7,8 +7,8 @@ class RegistrationController < ApplicationController
     @user = User.new(user_params)
 
     if @user.update_attributes(user_params)
-      flash[:notice] = 'успех'
-      redirect_to 'registration/finished'
+      @user.generate_test_token
+      redirect_to "/registration/finished?t=#{@user.test_token}"
     else
       render :new
     end
