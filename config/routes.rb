@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: 'admin/sessions'
   }
-  # devise_for :users
+  devise_for :users, only: []
   root to: 'homepage#index'
   get '/en', to: 'homepage#en'
   get '/arab', to: 'homepage#arab'
