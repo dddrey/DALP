@@ -1,7 +1,7 @@
 class UserTest < ApplicationRecord
   belongs_to :user
 
-  has_many :user_questions
+  has_many :questions, foreign_key: 'user_test_id', class_name: 'UserQuestion', dependent: :destroy
 
   def finished?
     self.end_at < Time.now

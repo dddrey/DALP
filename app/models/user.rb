@@ -22,6 +22,10 @@ class User < ApplicationRecord
     self.update(test_token: SecureRandom.hex(8))
   end
 
+  def full_name
+    "#{last_name} #{first_name} #{middle_name.present? ? ' ' + middle_name : ''}"
+  end
+
   private
 
   def full_name_uniqueness

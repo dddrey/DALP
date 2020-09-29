@@ -1,2 +1,8 @@
-h1 Test#test
-p Find me in app/views/test/test.html.slim
+header.header-main
+  .logo.logo-secondary
+    .wrapper
+      .image
+        img src='/dalp_logo.svg'
+      h1 Тест
+
+= content_tag :div, '', id: 'test-component', data: @data.to_json

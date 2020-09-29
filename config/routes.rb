@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/test', to: 'test#test'
   get '/test/finished', to: 'test#finished'
+  put '/test/submit_answer', to: 'test#submit_answer'
 
   get '/questions/:id', to: 'test#question_preview'
 
@@ -23,6 +24,9 @@ Rails.application.routes.draw do
     root to: 'admin/tests#index'
 
     resources :tests
+    resources :users do
+      get :test, on: :member, to: 'users#test'
+    end
     resources :questions
 
   end
