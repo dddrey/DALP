@@ -27,9 +27,9 @@ module DALP
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-    config.i18n.available_locales = %i(ru en)
+    config.i18n.available_locales = %i(ru)
     config.i18n.default_locale = :ru
-    config.i18n.fallbacks = %i(en)
+    config.i18n.fallbacks = %i(ru)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

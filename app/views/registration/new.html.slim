@@ -6,8 +6,6 @@ header.header-main
       h1 Регистрация
 .block
   = simple_form_for(@user, url: registration_path, method: 'POST') do |f|
-    / = f.error_notification
-    / = @user.errors.full_messages
     .form-inputs
       = f.input :last_name, required: true
       = f.input :first_name, required: true
