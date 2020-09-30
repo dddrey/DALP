@@ -14,10 +14,13 @@
     th.text-left= 'Соц. сети'
     th.text-left= 'Откуда узнали'
     th.text-left= 'Тест'
+    th.text-left= 'Закончил'
+    th.text-left= 'Результат'
 
 - content_for :table_body do
   - if @users.any?
     - @users.each do |user|
+      - test = user.test
       tr
         td = user.full_name
         td = user.email
@@ -29,7 +32,18 @@
         td = user.movement_help
         td = user.social_links
         td = user.competition_source
-        td = link_to user.test.id, test_admin_user_path(user.id), style: 'text-decoration: underline;'
+        - if test.present?
+          td = link_to test.id, test_admin_user_path(user.id), style: 'text-decoration: underline;'
+        - else
+          td не начат
+        - if test.present?
+          td = "#{test.questions.where(answered: true).count} из 100"
+        - else
+          td –
+        - if test.present?
+          td = "#{test.questions.where(answered_right: true).count} из 100"
+        - else
+          td –
   - else
     tr.empty-row
       td.text-left colspan='4'
