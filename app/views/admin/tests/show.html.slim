@@ -1,17 +1,17 @@
-.test style='max-width: 600px; margin: 0 auto;'
+.test
   h1 = @test.title
   - @test.questions.order(order: :asc).each do |q|
     / div style='text-align: right;' = "#{q.text} – #{q.order}"
-    .question-block style='border: 1px solid black; padding: 5px;'
+    .question-block
       / div = "ID: #{q.id}"
       = link_to 'Edit'.html_safe, edit_admin_question_path(q), target: '_blank', style: 'text-decoration: underline;'
       |  &nbsp;&nbsp;&nbsp;
       = link_to 'Preview', "/questions/#{q.id}", target: '_blank', style: 'text-decoration: underline;'
-      .question style='text-align: right; display: flex; justify-content: flex-end;'
+      .question
         div = "#{q.text}"
         h3 style='margin: 0;' = "&nbsp;&nbsp;–&nbsp;&nbsp;#{q.order}".html_safe
       br
-      .answers style='display: flex; justify-content: space-between;'
+      .answers
         - q.answers.order(order: :desc).each do |a|
           div
             span style="#{a.right ? 'color: red;' : ''}" = a.text

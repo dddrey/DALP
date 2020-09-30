@@ -9,7 +9,6 @@ import TestComponent from './components/test_component.jsx';
 
 document.addEventListener('DOMContentLoaded', () => {
   let testDiv = document.getElementById('test-component');
-  console.log(testDiv)
 
   if (testDiv) {
     let data = JSON.parse(testDiv.getAttribute('data'));

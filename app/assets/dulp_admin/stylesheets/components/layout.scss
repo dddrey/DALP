@@ -305,3 +305,24 @@ table {
     }
   }
 }
+
+.test {
+  max-width: 600px;
+  margin: 0 auto;
+  .question-block {
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 18px;
+
+    .question {
+      display: flex;
+      text-align: right;
+      justify-content: flex-end;
+    }
+
+    .answers {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
