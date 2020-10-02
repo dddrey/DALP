@@ -12,14 +12,12 @@ export default class TestComponent extends React.Component {
 
   componentDidMount() {
     this.setTimer();
-    console.log(this.state.data)
   }
 
   setTimer() {
     const { time } = this.props.data;
     const that = this;
 
-    console.log(time)
     let countDownDate = new Date(time).getTime();
 
     let x = setInterval(function() {
@@ -55,7 +53,6 @@ export default class TestComponent extends React.Component {
     .then(response => response.json())
     .catch(error => console.error(error))
     .then((response) => {
-      console.log(response)
       if (response.finished) {
         window.location = '/test/finished';
       } else {
