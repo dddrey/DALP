@@ -19,7 +19,7 @@ class User < ApplicationRecord
   before_save :set_movement_help, if: proc { |user| user.movement_help == nil }
 
   def generate_test_token
-    self.update(test_token: SecureRandom.hex(8))
+    self.update_columns(test_token: SecureRandom.hex(8))
   end
 
   def full_name
