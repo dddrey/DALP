@@ -28,6 +28,12 @@ textarea {
   hyphens: none;
 }
 
+input[type=submit][disabled=disabled],
+input[type=submit][disabled] {
+  pointer-events: none;
+  opacity: .3;
+}
+
 input[type=submit], .button, button {
   display: inline-block;
 
@@ -99,17 +105,39 @@ button:focus {
 .form-inputs {
   text-align: left;
 
+  abbr {
+    display: none;
+  }
+
+  .error {
+    color: $color-red;
+    font-size: .8rem;
+  }
+
   > .input {
     display: flex;
     flex-wrap: wrap;
 
     margin-bottom: $grid;
 
+    &.field_with_errors input {
+      color: $color-red;
+      border-color: $color-red;
+    }
+
     > label {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
       width: 100%;
       margin-bottom: $grid/2;
       font-size: .8rem;
       line-height: .9rem;
+
+      &.required:after {
+        content: '*';
+      }
     }
 
     > input,
@@ -123,6 +151,22 @@ button:focus {
       width: 100%;
     }
   }
+}
+
+.radio_buttons {
+  font-size: .8rem;
+
+  .radio {
+    margin-right: $grid;
+  }
+
+  input {
+    margin-right: $grid/10;
+  }
+}
+
+.form-actions-agree {
+  user-select: none;
 }
 
 .form-actions {
@@ -139,6 +183,10 @@ button:focus {
   }
 
   label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
     width: 100%;
     margin-bottom: $grid/2;
     font-size: .8rem;

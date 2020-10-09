@@ -22,8 +22,9 @@ header.header-main
       = f.input :social_links
       = f.input :competition_source
 
-    .form-actions
-      input value='0' type='checkbox'
-      label Согласен с условиями конкурса
+    .form-actions.form-actions-agree
+      label
+        input value='0' type='checkbox'
+        span Согласен с условиями конкурса
       / = f.button :submit, "ОК", class: "authorization-button", disabled: true
-      = f.button :submit, "Зарегистрироваться", class: "authorization-button"
+      = f.button :submit, "Зарегистрироваться", class: "authorization-button", disabled: true

@@ -17,6 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
       <TestComponent data={data} />, testDiv
     );
   }
+
+  const regCheckBox = document.querySelector('.form-actions-agree input[type=checkbox]');
+  const submitButton = document.querySelector('input[type=submit].authorization-button');
+  if (regCheckBox) {
+  	regCheckBox.addEventListener('click', () => {
+	    const isChecked = regCheckBox.checked;
+
+	    if (isChecked) {
+	    	submitButton.disabled = false;
+	    } else {
+	    	submitButton.disabled = true;
+	    }
+	  });
+  }
 });
 
 
