@@ -18,6 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
+  let birthInput = document.getElementById('user_birth_date');
+
+  if (birthInput) {
+    birthInput.addEventListener('keypress', (event) => {
+      let value = event.target.value.replace(/[^0-9\.]+/g, '');
+
+      let v = value.replace(/\D/g,'').slice(0, 10);
+      if (v.length >= 5) {
+        v = `${v.slice(0, 2)}/${v.slice(2, 4)}/${v.slice(4, 7)}`;
+      } else if (v.length >= 3) {
+        v = `${v.slice(0, 2)}/${v.slice(2)}`;
+      }
+
+      event.target.value = v;
+    });
+  }
+
   const regCheckBox = document.querySelector('.form-actions-agree input[type=checkbox]');
   const submitButton = document.querySelector('input[type=submit].authorization-button');
   if (regCheckBox) {
