@@ -18,7 +18,7 @@ export default class TestComponent extends React.Component {
     const { time } = this.props.data;
     const that = this;
 
-    let countDownDate = new Date(time).getTime();
+    let countDownDate = new Date(time.replace(/-/g, "/")).getTime();
 
     let x = setInterval(function() {
       let now = new Date().getTime();
