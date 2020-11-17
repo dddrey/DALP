@@ -1,5 +1,15 @@
 .test
   h2 = @user.full_name
+  div style='margin-bottom: 5px;' == "<strong>Email:</strong> #{@user.email}"
+  div style='margin-bottom: 5px;' == "<strong>Телефон:</strong> #{@user.phone}"
+  div style='margin-bottom: 5px;' == "<strong>Дата рождения:</strong> #{@user.birth_date}"
+  div style='margin-bottom: 5px;' == "<strong>Город:</strong> #{@user.city}"
+  div style='margin-bottom: 5px;' == "<strong>Образование:</strong> #{@user.education}"
+  div style='margin-bottom: 5px;' == "<strong>Изучение арабского:</strong> #{@user.arab_study} "
+  div style='margin-bottom: 5px;' == "<strong>Помощь в передвижении:</strong> #{@user.movement_help}"
+  div style='margin-bottom: 5px;' == "<strong>Соц. сети:</strong> #{@user.social_links}"
+  div style='margin-bottom: 5px;' == "<strong>Откуда узнали:</strong> #{@user.competition_source}"
+  br
   h3 = "Закончил: #{@questions.where(answered: true).count} из 100"
   h3 = "Результат: #{@questions.where(answered_right: true).count} из 100"
   br
