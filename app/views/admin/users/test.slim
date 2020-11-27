@@ -9,12 +9,12 @@
   div style='margin-bottom: 5px;' == "<strong>Помощь в передвижении:</strong> #{@user.movement_help}"
   div style='margin-bottom: 5px;' == "<strong>Соц. сети:</strong> #{@user.social_links}"
   div style='margin-bottom: 5px;' == "<strong>Откуда узнали:</strong> #{@user.competition_source}"
-  div style='margin-bottom: 5px;'== "<strong>Закончил:</strong> #{@questions.where(answered: true).count} из 100"
-  div style='margin-bottom: 5px;'== "<strong>Результат:</strong> #{@questions.where(answered_right: true).count} из 100"
+  div style='margin-bottom: 5px;' == "<strong>Закончил:</strong> #{@questions.where(answered: true).count} из 100"
+  div style='margin-bottom: 5px;' == "<strong>Результат:</strong> #{@questions.where(answered_right: true).count} из 100"
   br
   = simple_form_for '', url: admin_user_path(@user), method: :delete do |f|
     .cancel-button
-      = f.button :submit, 'Удалить', onclick: "javascript: return confirm('Удалить #{@user.email}?');", style: 'text-transform: capitalize;'
+      = f.button :submit, 'Удалить пользователя и его тест', onclick: "javascript: return confirm('Удалить #{@user.email}?');", style: 'text-transform: initial;'
   br
   - @questions.each do |q|
     .question-block
