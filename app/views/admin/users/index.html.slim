@@ -19,9 +19,9 @@
 
 - content_for :table_body do
   - if @users.any?
-    - @users.each do |user|
+    - @users.each_with_index do |user, index|
       - test = user.test
-      tr
+      tr style="#{index == 99 && params[:second_stage].present? ? 'background-color:red;' : ''}"
         - if test.present?
           td = link_to user.full_name, test_admin_user_path(user.id), style: 'text-decoration: underline;'
         - else
