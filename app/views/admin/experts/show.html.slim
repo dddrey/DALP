@@ -1,0 +1,39 @@
+- date_indexes = ['2/12/2020', '3/12/2020', '4/12/2020', '5/12/2020', '6/12/2020', '7/12/2020', '8/12/2020', '9/12/2020']
+- hour_indexes = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00']
+
+.test
+  h1 = "Расписание #{@expert.get_name}"
+
+  .expert-calendar
+    .col
+      br
+      div style='border-bottom: 1px solid black;' 10:00 - 10:45
+      div style='border-bottom: 1px solid black;' 11:00 - 11:45
+      div style='border-bottom: 1px solid black;' 12:00 - 12:45
+      div style='border-bottom: 1px solid black;' 13:00 - 13:45
+      div style='border-bottom: 1px solid black;' 14:00 - 14:45
+      div style='border-bottom: 1px solid black;' 15:00 - 15:45
+      div style='border-bottom: 1px solid black;' 16:00 - 16:45
+      div style='border-bottom: 1px solid black;' 17:00 - 17:45
+      div style='border-bottom: 1px solid black;' 18:00 - 18:45
+      div style='border-bottom: 1px solid black;' 19:00 - 19:45
+      div style='border-bottom: 1px solid black;' 20:00 - 20:45
+    - date_indexes.each_with_index do |date, index|
+      - day = date.split('/')[0].to_i
+      - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.new(2020, 12, day, 0, 0, 0).beginning_of_day, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
+      / cast(id as text) ILIKE ?
+      .col
+        div = date
+        - hour_indexes.each do |hour|
+          div style="color: transparent; border-bottom: 1px solid black;#{interviews.find_by(time_string: hour).present? ? 'background-color: green;' : 'background-color: red;'}" -
+
+  / table
+    thead
+      tr
+        th х
+        th п
+
+    tbody
+      tr
+        td а
+        td е

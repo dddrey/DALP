@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get :test, on: :member, to: 'users#test'
     end
     resources :questions
+    resources :experts, only: [:index, :show]
 
   end
 end
