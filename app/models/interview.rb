@@ -1,5 +1,5 @@
 class Interview < ApplicationRecord
-  has_one :expert, optional: true
-  has_one :user, optional: true
+  has_one :expert
+  has_one :user
 
 end
