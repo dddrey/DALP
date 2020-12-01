@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_043824) do
+ActiveRecord::Schema.define(version: 2020_12_01_050853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 2020_12_01_043824) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_experts_on_email", unique: true
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.datetime "datetime_stamp"
+    t.string "date_string"
+    t.string "time_string"
+    t.string "zoom_room_url"
+    t.integer "expert_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
