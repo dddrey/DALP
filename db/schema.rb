@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_050853) do
+ActiveRecord::Schema.define(version: 2020_12_01_174023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,14 @@ ActiveRecord::Schema.define(version: 2020_12_01_050853) do
     t.datetime "datetime_stamp"
     t.string "date_string"
     t.string "time_string"
-    t.string "zoom_room_url"
+    t.string "zoom_room_id"
     t.integer "expert_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "zoom_start_url"
+    t.string "zoom_join_url"
+    t.string "room_password"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -119,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_050853) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "test_token"
+    t.string "interview_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end

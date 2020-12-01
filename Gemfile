@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'rollbar'
 gem 'webpacker', '~> 3.5.5'
+gem 'zoom_rb', git: 'https://github.com/hintmedia/zoom_rb'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

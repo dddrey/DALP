@@ -72,6 +72,8 @@ class TestController < ApplicationController
   end
 
   def question_preview
+    return redirect_to root_path unless current_admin.present?
+
     @question = Question.find(params[:id])
     @answers = @question.answers.order(order: :desc)
   end
