@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get '/test/finished', to: 'test#finished'
   put '/test/submit_answer', to: 'test#submit_answer'
 
+  get 'interview', to: 'interview#index'
+  get 'interview/sign_up', to: 'interview#sign_up'
+  post 'interview/sign_up', to: 'interview#create'
+
   get '/questions/:id', to: 'test#question_preview'
 
   get '/admin', to: redirect('/admin/tests')

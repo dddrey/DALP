@@ -41,6 +41,54 @@ body {
   }
 }
 
+.expert-calendar {
+  overflow: scroll;
+
+  .calendar-content {
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 900px;
+    min-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+form.simple_form, #selected-date{
+  margin: 20px auto 0 auto;
+
+  max-width: 900px;
+}
+
+.notice,
+.alert {
+  position: fixed;
+
+  top: 0; left: 0;
+  width: 100%;
+  text-align: center;
+  padding: $grid/2.5;
+  font-size: 18px;
+
+  &.hide {
+    display: none;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+.notice {
+  background: black;
+  color: white;
+}
+
+.alert {
+  background: red;
+  color: white;
+}
+
 .body-wrapper {
   flex: 1 0 auto;
   padding: $grid/4*3;

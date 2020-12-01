@@ -18,6 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
+  let interviewSlots = document.querySelectorAll('.interview_slot');
+
+  if (interviewSlots.length > 0) {
+    let dateInput = document.getElementById('selected-date');
+    let interviewIdInput = document.querySelector('form > input#id');
+    let submitFormButton = document.querySelector("form > input[type='submit']");
+
+    interviewSlots.forEach((is) => {
+      is.addEventListener('click', (e) => {
+        dateInput.innerHTML = 'Выбранное время: ' + e.target.getAttribute('datetime');
+        submitFormButton.style = 'display: block;';
+        interviewIdInput.value = e.target.getAttribute('id');
+      });
+    });
+  }
+
   let birthInput = document.getElementById('user_birth_date');
 
   if (birthInput) {

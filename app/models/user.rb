@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :registerable, :rememberable, remember_for: 6.months
 
   has_one :test, foreign_key: 'user_id', class_name: 'UserTest', dependent: :destroy
+  has_one :interview
 
   validates_presence_of :last_name, :first_name, :birth_date, :city, :education
 
@@ -20,6 +21,10 @@ class User < ApplicationRecord
 
   def generate_test_token
     self.update_columns(test_token: SecureRandom.hex(8))
+  end
+
+  def generate_interview_token
+    self.update_columns(interview_token: SecureRandom.hex(8))
   end
 
   def full_name

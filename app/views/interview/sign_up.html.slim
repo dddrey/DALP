@@ -1,0 +1,40 @@
+- date_indexes = ['2/12/20', '3/12/20', '4/12/20', '5/12/20', '6/12/20', '7/12/20', '8/12/20', '9/12/20']
+- hour_indexes = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00']
+
+- if @interview.present?
+  h2 style='margin-top: 40px;' Вы зарегистрировались на собеседование
+
+  div style='margin-bottom: 5px;' == "<strong>Дата:</strong> #{@interview.date_string} #{@interview.time_string} МСК"
+  div style='margin-bottom: 5px;' == "<strong>Ссылка на онлайн-интервью:</strong> #{@interview.zoom_join_url}"
+- else
+  h2 style='margin-top: 40px;' Выберите подходящее для вас время
+  .expert-calendar
+    .calendar-content
+      .col
+        br
+        div style='border-bottom: 1px solid black;' 10:00 - 10:45
+        div style='border-bottom: 1px solid black;' 11:00 - 11:45
+        div style='border-bottom: 1px solid black;' 12:00 - 12:45
+        div style='border-bottom: 1px solid black;' 13:00 - 13:45
+        div style='border-bottom: 1px solid black;' 14:00 - 14:45
+        div style='border-bottom: 1px solid black;' 15:00 - 15:45
+        div style='border-bottom: 1px solid black;' 16:00 - 16:45
+        div style='border-bottom: 1px solid black;' 17:00 - 17:45
+        div style='border-bottom: 1px solid black;' 18:00 - 18:45
+        div style='border-bottom: 1px solid black;' 19:00 - 19:45
+        div style='border-bottom: 1px solid black;' 20:00 - 20:45
+      - date_indexes.each_with_index do |date, index|
+        - day = date.split('/')[0].to_i
+        - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.new(2020, 12, day, 0, 0, 0).beginning_of_day, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
+
+        .col
+          div = date
+          - hour_indexes.each do |hour|
+            - interview = interviews.find_by(time_string: hour)
+            div.interview_slot id=(interview&.id) datetime="#{date} #{hour}" style="color: transparent; border-bottom: 1px solid black;#{interview.present? ? 'background-color: green;' : 'background-color: red; cursor: not-allowed; pointer-events: none;'}" -
+
+    #selected-date
+
+    = simple_form_for '', url: interview_sign_up_path, method: 'POST' do |f|
+      = f.hidden_field :id
+      = f.submit 'OK', name: nil, style: 'display: none;'

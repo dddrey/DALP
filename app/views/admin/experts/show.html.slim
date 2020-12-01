@@ -21,19 +21,9 @@
     - date_indexes.each_with_index do |date, index|
       - day = date.split('/')[0].to_i
       - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.new(2020, 12, day, 0, 0, 0).beginning_of_day, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
-      / cast(id as text) ILIKE ?
+
       .col
         div = date
         - hour_indexes.each do |hour|
-          div style="color: transparent; border-bottom: 1px solid black;#{interviews.find_by(time_string: hour).present? ? 'background-color: green;' : 'background-color: red;'}" -
-
-  / table
-    thead
-      tr
-        th х
-        th п
-
-    tbody
-      tr
-        td а
-        td е
+          - interview = interviews.find_by(time_string: hour)
+          div style="color: transparent; border-bottom: 1px solid black;#{interview.present? ? (interview.user_id.present? ? 'background-color: grey;' : 'background-color: green;') : 'background-color: red;'}" -
