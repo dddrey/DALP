@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     interviewSlots.forEach((is) => {
       is.addEventListener('click', (e) => {
-        dateInput.innerHTML = 'Выбранное время: ' + e.target.getAttribute('datetime');
+        dateInput.innerHTML = 'Выбранное время: ' + e.target.getAttribute('datetime') + ' МСК';
         submitFormButton.style = 'display: block;';
         interviewIdInput.value = e.target.getAttribute('id');
       });
