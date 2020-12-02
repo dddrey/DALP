@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :experts
+  devise_for :experts, controllers: {
+    sessions: 'expert/sessions'
+  }
 
   devise_for :admins, controllers: {
     sessions: 'admin/sessions'
@@ -21,6 +23,8 @@ Rails.application.routes.draw do
   get 'interview', to: 'interview#index'
   get 'interview/sign_up', to: 'interview#sign_up'
   post 'interview/sign_up', to: 'interview#create'
+
+  get '/expert/dashboard', to: 'experts#dashboard'
 
   get '/questions/:id', to: 'test#question_preview'
 
