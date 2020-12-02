@@ -8,6 +8,17 @@ class ZoomService
   end
 
   def call
+    zoom_ids = [
+      { epxert_id: 1, zoom_id: 'ltPbCutDRWm50OeUk9EXlQ', name: 'tair' },
+      { epxert_id: 2, zoom_id: 'i4CQzOXpRrCSrw-EpRkQIQ', name: 'rami' },
+      { epxert_id: 3, zoom_id: 'mtJciYQjQxGtzpv3eZmxMg', name: 'wafaa' }
+    ]
+
+    # wafaa_zoom_id = 'mtJciYQjQxGtzpv3eZmxMg'
+    # rami_zoom_id = 'i4CQzOXpRrCSrw-EpRkQIQ'
+    # tair_zoom_id = 'ltPbCutDRWm50OeUk9EXlQ'
+    # doha_zoom_id = 'f3jQSM1bRlayqEix4pv0Rg'
+
     zoom_client = Zoom.new
     zoom_params = {
       topic: "Интервью #{@expert.get_name} с #{@user.full_name}",
@@ -15,7 +26,7 @@ class ZoomService
       start_time: @interview.datetime_stamp.utc.strftime('%Y-%m-%dT%H:%M:%S'),
       duration: 45,
       timezone: 'Europe/Moscow',
-      user_id: 'f3jQSM1bRlayqEix4pv0Rg'
+      user_id: zoom_ids.filter{|item| item[:epxert_id] == @expert.id}[0][:zoom_id]
     }
     # schedule_for: 'dalp@qatarrussia.ru',
 
