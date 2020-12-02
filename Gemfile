@@ -18,6 +18,9 @@ gem 'rollbar'
 gem 'webpacker', '~> 3.5.5'
 gem 'zoom_rb', git: 'https://github.com/hintmedia/zoom_rb'
 
+gem "letter_opener", :group => :development
+
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
