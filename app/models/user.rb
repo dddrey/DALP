@@ -33,6 +33,11 @@ class User < ApplicationRecord
     "#{last_name} #{first_name} #{middle_name.present? ? ' ' + middle_name : ''}"
   end
 
+  def send_second_stage_email
+    generate_interview_token() unless interview_token.present?
+    SecondStageMailer.email(self.id).deliver
+  end
+
   private
 
   def full_name_uniqueness
