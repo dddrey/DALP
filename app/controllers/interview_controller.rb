@@ -33,7 +33,6 @@ class InterviewController < ApplicationController
     end
 
     interview.update(user_id: current_user.id)
-    flash[:notice] = 'Вы успешно зарегистрировались на интервью'
     redirect_to '/interview/sign_up'
   end
 end
