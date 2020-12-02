@@ -21,7 +21,7 @@
   - if @users.any?
     - @users.each_with_index do |user, index|
       - test = user.test
-      tr style="#{index == 99 && params[:second_stage].present? ? 'background-color:red;' : ''}"
+      tr style="#{user.second_stage == true ? 'background-color: wheat;' : ''}"
         - if test.present?
           td = link_to user.full_name, test_admin_user_path(user.id), style: 'text-decoration: underline;'
         - else
