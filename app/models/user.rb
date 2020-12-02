@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: Devise.email_regexp }
   # validates :phone, presence: true, uniqueness: true, format: { with: PHONE_NUMBER_REGEXP }
 
-  validate :full_name_uniqueness, if: proc { |user| user.middle_name.present? }
+  # validate :full_name_uniqueness, if: proc { |user| user.middle_name.present? }
 
   before_save :set_movement_help, if: proc { |user| user.movement_help == nil }
 

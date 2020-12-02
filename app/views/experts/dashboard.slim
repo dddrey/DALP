@@ -1,9 +1,9 @@
 .interviews-dashboard
   h2 Предстоящие интервью
+  h2 = current_expert.get_name
   - @interviews.each do |interview|
     .interview
-      div style='margin-bottom: 5px;' == "<strong>Дата:</strong> #{interview.date_string} #{interview.time_string} МСК"
       div style='margin-bottom: 5px;'
-        span == "<strong>Онлайн-интервью: </strong>"
-        = link_to 'Ссылка', interview.zoom_start_url
+        = link_to 'Интервью', "/expert/interviews/#{interview.id}"
+        == " с #{interview.user.full_name}&nbsp;&nbsp; <strong>#{interview.date_string.split('/')[0]}</strong> декабря в <strong>#{interview.time_string}</strong> МСК"
 

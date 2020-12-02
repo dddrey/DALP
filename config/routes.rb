@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   post 'interview/sign_up', to: 'interview#create'
 
   get '/expert/dashboard', to: 'experts#dashboard'
+  get '/expert/interviews/:id', to: 'experts#interview_page'
+  put '/expert/interviews/:id', to: 'experts#submit_review'
 
   get '/questions/:id', to: 'test#question_preview'
 
@@ -39,6 +41,5 @@ Rails.application.routes.draw do
     end
     resources :questions
     resources :experts, only: [:index, :show]
-
   end
 end

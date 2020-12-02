@@ -1,0 +1,43 @@
+h2 style='text-transform: initial; font-size: 20px;' == "Интервью с #{@user.full_name}"
+.user-card
+  div == "<strong>Email:</strong> #{@user.email}"
+  div == "<strong>Телефон:</strong> #{@user.phone}"
+  div == "<strong>Дата рождения:</strong> #{@user.birth_date}"
+  div == "<strong>Город:</strong> #{@user.city}"
+  div == "<strong>Образование:</strong> #{@user.education}"
+  div == "<strong>Изучение арабского:</strong> #{@user.arab_study} "
+  div == "<strong>Помощь в передвижении:</strong> #{@user.movement_help? ? 'Нужна' : 'Не нужна'}"
+  div == "<strong>Соц. сети:</strong> #{@user.social_links}"
+  div == "<strong>Откуда узнали:</strong> #{@user.competition_source}"
+  div == "<strong>Результат:</strong> #{@questions.where(answered_right: true).count} из 100"
+  br
+  div
+    == "<strong>Онлайн-интервью:</strong> "
+    a href=@interview.zoom_start_url target='_blank' Ссылка
+  br
+
+  div == "<strong>Оценка:</strong>"
+  = simple_form_for @user, url: "/expert/interviews/#{@interview.id}", method: :put do |f|
+    .form-group class=('has-error' if @user.errors[:total_score].any?)
+      = f.label 'Общий бал'
+      .col-sm-8
+        = f.input :total_score, label: false
+    br
+    .form-group class=('has-error' if @user.errors[:expert_review_doc].any?)
+      = f.label 'Файл с оценкой', { class: 'control-label col-sm-2', required: false }
+      .col-sm-8
+        - if @user.expert_review_doc.url.present?
+          div
+            == "Оценка загружена, вот ссылка на нее:&nbsp;"
+            = link_to 'Файл', @user.expert_review_doc.url, target: '_blank'
+            br
+            br
+        = f.input :expert_review_doc, input_html: { class: 'form-control' }, label: false
+    br
+    .form-group.form-group-actions
+      .col-sm-4.col-sm-offset-2
+        = f.submit 'Сохранить', class: 'btn btn-primary'
+
+
+/ total_score
+/ expert_review_doc
