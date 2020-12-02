@@ -18,7 +18,7 @@ html
     meta name="apple-mobile-web-app-title" content="Doha Prize 2020"
 
     title Doha Prize 2020
-    - if Rails.env.production? && !params[:controller].include?('admin')
+    - if Rails.env.production? && !params[:controller].include?('admin') && !params[:controller].include?('expert')
       = render 'shared/ga'
       = render 'shared/fb'
       = render 'shared/vk'

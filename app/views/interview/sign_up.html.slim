@@ -5,7 +5,10 @@
   h2 style='margin-top: 40px;' Вы зарегистрировались на собеседование
 
   div style='margin-bottom: 5px;' == "<strong>Дата:</strong> #{@interview.date_string} #{@interview.time_string} МСК"
-  div style='margin-bottom: 5px;' == "<strong>Ссылка на онлайн-интервью:</strong> #{@interview.zoom_join_url}"
+  div style='margin-bottom: 5px;' == "<strong>Онлайн-интервью: </strong> #{@interview.zoom_join_url}"
+  / div style='margin-bottom: 5px;'
+    span == "<strong>Онлайн-интервью: </strong>"
+    = link_to 'Ссылка', @interview.zoom_join_url
 - else
   h2 style='margin-top: 40px;' Выберите подходящее для вас время
   .expert-calendar
@@ -26,6 +29,8 @@
       - date_indexes.each_with_index do |date, index|
         - day = date.split('/')[0].to_i
         - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.new(2020, 12, day, 0, 0, 0).beginning_of_day, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
+        / - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.now, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
+        / - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.now, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
 
         .col
           div = date
