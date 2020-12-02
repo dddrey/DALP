@@ -8,6 +8,6 @@ class Interview < ApplicationRecord
   # BEFORE user id remove CLEAR zoom_room_id zoom_start_url zoom_join_url room_password
 
   def generate_zoom_room
-    ZoomService.new(user_id, expert_id, id).call
+    ZoomService.new(expert_id, user_id, id).call
   end
 end
