@@ -1,14 +1,30 @@
-- date_indexes = ['2/12/20', '3/12/20', '4/12/20', '5/12/20', '6/12/20', '7/12/20', '8/12/20', '9/12/20']
+- date_indexes = ['2/12/2020', '3/12/2020', '4/12/2020', '5/12/2020', '6/12/2020', '7/12/2020', '8/12/2020', '9/12/2020']
 - hour_indexes = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00']
 
 - if @interview.present?
-  h2 style='margin-top: 40px;' Вы зарегистрировались на собеседование
+  header.header-main
+    .logo.logo-secondary
+      .wrapper
+        .image
+          img src="/dalp_logo.svg"
+        h1 Cобеседование
+  .block.block-secondary
+    p Уважаемый конкурсант,
+    p Поздравляем вас с прохождением отбора во второй этап ежегодного всероссийского конкурса по арабскому языку «Doha Arabic Language Prize-2020» для лиц, не являющихся носителями языка.
+    p = "Ваше интервью состоится #{@interview.datetime_stamp.day} декабря 2020 года в #{@interview.time_string}"
+    p Вам необходимо подключиться к собеседованию не меньше чем за пять минут до назначенного времени.
+    p Ниже вы найдете инструкцию для прохождения онлайн интервью.
+    p Основные обязательные правила для всех участников:
+    p 1. Камера вашего устройства должна быть включена в течение всего времени прохождения собеседования, ничего не должно мешать обзору.
+    p 2. Все устройства, кроме непосредственно задействованного в разговоре, мобильный телефон, планшет и т.д., с которых вы можете выходить в интернет должны быть выключены.
+    p 3. Отвечать на вопросы необходимо на литературном арабском языке, четко и понятно.
+    p 4. Желательно держать обе руки перед камерой устройства так, чтобы их было видно экзаменатору в течение всего времени проведения интервью. Экзамен будет устным, вам не понадобится ничего писать.
+    p 5. Если перед камерой появится постороннее лицо или будет услышан посторонний звук, интервью будет завершено, и, экспертный совет будет вынужден дисквалифицировать вас.
+    p 6. Запрещено задавать посторонние вопросы и обсуждать темы, не имеющие отношения к заданному вопросу.
+    p 7. Отлучаться во время интервью запрещено.
+    p Напоминаем, что вы должны соблюдать все правила для обеспечения честного и прозрачного прохождения второго этапа конкурса.
+    p Желаем вам успешно пройти второй этап и выйти в финал конкурса. Удачи!
 
-  div style='margin-bottom: 5px;' == "<strong>Дата:</strong> #{@interview.date_string} #{@interview.time_string} МСК"
-  div style='margin-bottom: 5px;' == "<strong>Онлайн-интервью: </strong> #{@interview.zoom_join_url}"
-  / div style='margin-bottom: 5px;'
-    span == "<strong>Онлайн-интервью: </strong>"
-    = link_to 'Ссылка', @interview.zoom_join_url
 - else
   h2 style='margin-top: 40px;' Выберите подходящее для вас время
   .expert-calendar
@@ -28,14 +44,14 @@
         div style='border-bottom: 1px solid black;' 20:00 - 20:45
       - date_indexes.each_with_index do |date, index|
         - day = date.split('/')[0].to_i
-        - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.new(2020, 12, day, 0, 0, 0).beginning_of_day, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
+        / - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.new(2020, 12, day, 0, 0, 0).beginning_of_day, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
         / - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.now, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
-        / - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.now, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
+        - interviews = @interviews.where('datetime_stamp BETWEEN ? AND ?', DateTime.now, DateTime.new(2020, 12, day, 0, 0, 0).end_of_day)
 
         .col
-          div = date
+          div = date[0..date.length-3]
           - hour_indexes.each do |hour|
-            - interview = interviews.find_by(time_string: hour)
+            - interview = interviews.find_by(time_string: hour, date_string: date)
             div.interview_slot id=(interview&.id) datetime="#{date} #{hour}" style="color: transparent; border-bottom: 1px solid black;#{interview.present? ? 'background-color: green;' : 'background-color: red; cursor: not-allowed; pointer-events: none;'}" -
 
     #selected-date

@@ -19,6 +19,7 @@ class InterviewController < ApplicationController
       @interview = current_user.interview
     else
       @interviews = Interview.where(user_id: nil)
+      # @interviews = Interview.where(user_id: nil, expert_id: 3)
     end
   end
 
@@ -27,14 +28,8 @@ class InterviewController < ApplicationController
 
     interview = Interview.find(params[:id])
 
-    if interview.user_id.present?
-      flash[:error] = "Выбранное время не доступно"
-      return redirect_to '/interview/'
-    end
-
-    if current_user.interview.present?
-      flash[:notice] = "Вы уже записаны на интервью"
-      return redirect_to '/'
+    if interview.user_id.present? || current_user.interview.present?
+      return redirect_to '/interview/sign_up'
     end
 
     interview.update(user_id: current_user.id)
