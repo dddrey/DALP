@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   PHONE_NUMBER_REGEXP = /\A7[\d]{10}\z/
 
+  mount_uploader :expert_review_doc, DocumentUploader
+
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :validatable
   # devise :registerable, :rememberable, :validatable
