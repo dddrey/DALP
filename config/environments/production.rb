@@ -63,12 +63,12 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'dalp.online' }
+  config.action_mailer.default_url_options = { host: 'qatarrussia.ru' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :user_name => 'apikey',
     :password => Rails.application.credentials.dig(:sendgrid_api_key),
-    :domain => 'dalp.online',
+    :domain => 'qatarrussia.ru',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
