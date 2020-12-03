@@ -1,6 +1,9 @@
 .interviews-dashboard
-  h2 Предстоящие интервью
-  h2 = current_expert.get_name
+  h2 = "Предстоящие интервью для #{current_expert.get_name}"
+  = link_to 'Загрузить запись(и) интервью', 'https://wetransfer.com/?to=K.aralova@qatarrussia.ru', target: '_blank'
+  br
+  br
+  br
   - @interviews.each do |interview|
     .interview
       div style='margin-bottom: 5px;'
