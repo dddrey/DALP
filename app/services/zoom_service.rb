@@ -37,9 +37,5 @@ class ZoomService
       zoom_join_url: meeting_response['join_url'],
       room_password: meeting_response['password']
     )
-    p zoom_params
-    p '_'
-    p meeting_response
-
   end
 end

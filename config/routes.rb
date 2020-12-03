@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :tests
     resources :users do
       get :test, on: :member, to: 'users#test'
+      delete :interview_reset, on: :member, to: 'users#interview_reset'
     end
     resources :questions
     resources :experts, only: [:index, :show]

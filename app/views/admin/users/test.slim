@@ -16,6 +16,11 @@
     .cancel-button
       = f.button :submit, 'Удалить пользователя и его тест', onclick: "javascript: return confirm('Удалить #{@user.email}?');", style: 'text-transform: initial;'
   br
+  - if @user.interview.present?
+    = simple_form_for '', url: "/admin/users/#{@user.id}/interview_reset", method: :delete do |f|
+      .cancel-button
+        = f.button :submit, 'Обнулить интервью', onclick: "javascript: return confirm('Обновить интервью у #{@user.email}?');", style: 'text-transform: initial;'
+  br
   - @questions.each do |q|
     .question-block
       .question

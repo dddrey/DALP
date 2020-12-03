@@ -24,4 +24,13 @@ class Admin::UsersController < AdminController
       redirect_to test_admin_user_path(@user)
     end
   end
+
+  def interview_reset
+    user = User.find(params[:id])
+    interview = user.interview
+    interview.reset
+
+    flash[:notice] = 'Интервью обнулено'
+    redirect_to test_admin_user_path(@user)
+  end
 end
