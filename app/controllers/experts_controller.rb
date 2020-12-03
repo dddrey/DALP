@@ -16,8 +16,10 @@ class ExpertsController < ApplicationController
     user = interview.user
     total_score = params[:user][:total_score]
     doc = params[:user][:expert_review_doc]
+    arab_relatives = params[:user][:arab_relatives]
 
     user.total_score = total_score
+    user.arab_relatives = arab_relatives
     user.expert_review_doc = doc if doc.present?
 
     user.save

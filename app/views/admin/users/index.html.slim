@@ -8,6 +8,7 @@
     th.text-left= 'Телефон'
     th.text-left= 'Дата рождения'
     th.text-left= 'Город'
+    th.text-left= 'Арабские корни'
     - if params[:second_stage].present?
       th.text-left Интервью
     / th.text-left= 'Образование'
@@ -31,6 +32,7 @@
         td = user.phone
         td = user.birth_date
         td = user.city.truncate_words(3)
+        td = user.arab_relatives? ? 'Да' : 'Нет'
         - if params[:second_stage].present?
           td = user.interview.present? ? '+' : '–'
         / td = user.education

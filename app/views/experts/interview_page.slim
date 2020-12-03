@@ -23,6 +23,11 @@ h2 style='text-transform: initial; font-size: 20px;' == "Интервью с #{@
       .col-sm-8
         = f.input :total_score, label: false
     br
+    .form-group class=('has-error' if @user.errors[:arab_relatives].any?)
+      = f.label 'هل لديه جذور عربية ؟'
+      .col-sm-8
+        = f.input :arab_relatives, label: false
+    br
     .form-group class=('has-error' if @user.errors[:expert_review_doc].any?)
       = f.label 'Файл с оценкой', { class: 'control-label col-sm-2', required: false }
       .col-sm-8

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_142131) do
+ActiveRecord::Schema.define(version: 2020_12_03_113333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_142131) do
     t.string "total_score"
     t.string "expert_review_doc"
     t.boolean "second_stage", default: false
+    t.boolean "arab_relatives", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end
