@@ -31,6 +31,6 @@ class Admin::UsersController < AdminController
     interview.reset
 
     flash[:notice] = 'Интервью обнулено'
-    redirect_to test_admin_user_path(@user)
+    redirect_to test_admin_user_path(user)
   end
 end
