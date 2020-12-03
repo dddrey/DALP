@@ -7,6 +7,7 @@
   div style='margin-bottom: 5px;' == "<strong>Образование:</strong> #{@user.education}"
   div style='margin-bottom: 5px;' == "<strong>Изучение арабского:</strong> #{@user.arab_study} "
   div style='margin-bottom: 5px;' == "<strong>Помощь в передвижении:</strong> #{@user.movement_help}"
+  div style='margin-bottom: 5px;' == "<strong>Арабские корни:</strong> #{@user.arab_relatives}"
   div style='margin-bottom: 5px;' == "<strong>Соц. сети:</strong> #{@user.social_links}"
   div style='margin-bottom: 5px;' == "<strong>Откуда узнали:</strong> #{@user.competition_source}"
   div style='margin-bottom: 5px;' == "<strong>Закончил:</strong> #{@questions.where(answered: true).count} из 100"
