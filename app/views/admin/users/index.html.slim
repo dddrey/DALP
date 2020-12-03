@@ -8,9 +8,10 @@
     th.text-left= 'Телефон'
     th.text-left= 'Дата рождения'
     th.text-left= 'Город'
+    - if params[:second_stage].present?
+      th.text-left Интервью
     / th.text-left= 'Образование'
     / th.text-left= 'Изучение арабского'
-    th.text-left= 'Помощь в передвижении'
     / th.text-left= 'Соц. сети'
     / th.text-left= 'Откуда узнали'
     th.text-left= 'Тест'
@@ -30,9 +31,10 @@
         td = user.phone
         td = user.birth_date
         td = user.city.truncate_words(3)
+        - if params[:second_stage].present?
+          td = user.interview.present? ? '+' : '–'
         / td = user.education
         / td = user.arab_study
-        td = user.movement_help
         / td = user.social_links
         / td = user.competition_source
         - if test.present?

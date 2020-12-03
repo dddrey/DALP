@@ -1,7 +1,7 @@
 class Admin::UsersController < AdminController
   def index
     @users = if params[:second_stage].present?
-      User.find(UserTest.left_joins(:questions).group(:id).where('user_questions.answered_right = true').order('COUNT(user_questions.id) desc').pluck(:user_id))
+      User.where(second_stage: true)
     else
       User.order(id: :desc)
     end
