@@ -21,4 +21,15 @@ class SecondStageMailer < ApplicationMailer
       format.html
     end
   end
+
+  def thanks_email(user_id)
+    @user = User.find(user_id)
+
+    mail(   :to      => @user.email,
+            :subject => "Doha Prize 2020 | Спасибо за участие"
+    ) do |format|
+      format.text
+      format.html
+    end
+  end
 end

@@ -3,6 +3,10 @@ class UserTest < ApplicationRecord
 
   has_many :questions, foreign_key: 'user_test_id', class_name: 'UserQuestion', dependent: :destroy
 
+  def right_answers
+    questions.where(answered_right: true)
+  end
+
   def finished?
     self.end_at < Time.now
   end

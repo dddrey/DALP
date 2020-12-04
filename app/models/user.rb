@@ -38,6 +38,10 @@ class User < ApplicationRecord
     SecondStageMailer.email(self.id).deliver
   end
 
+  def send_thanks_email
+    SecondStageMailer.thanks_email(self.id).deliver
+  end
+
   private
 
   def full_name_uniqueness
