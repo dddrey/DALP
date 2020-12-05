@@ -3,21 +3,23 @@
 
 - content_for :table_header do
   tr
-    th.text-left= 'ФИО'
-    th.text-left= 'Email'
-    th.text-left= 'Телефон'
-    th.text-left= 'Дата рождения'
-    th.text-left= 'Город'
-    th.text-left= 'Арабские корни'
+    th.text-left ФИО
+    th.text-left Email
+    th.text-left Телефон
+    th.text-left Дата рождения
+    th.text-left Город
+    th.text-left Арабские корни
     - if params[:second_stage].present?
       th.text-left Интервью
-    / th.text-left= 'Образование'
-    / th.text-left= 'Изучение арабского'
-    / th.text-left= 'Соц. сети'
-    / th.text-left= 'Откуда узнали'
-    th.text-left= 'Тест'
-    th.text-left= 'Закончил'
-    th.text-left= 'Результат'
+    / th.text-left Образование
+    / th.text-left Изучение арабского
+    / th.text-left Соц. сети
+    / th.text-left Откуда узнали
+    th.text-left Тест
+    th.text-left Закончил
+    th.text-left Результат
+    - if params[:second_stage].present?
+      th.text-left Общий бал
 
 - content_for :table_body do
   - if @users.any?
@@ -51,6 +53,8 @@
           td = "#{test.questions.where(answered_right: true).count} из 100"
         - else
           td –
+        - if params[:second_stage].present?
+          td = user.total_score
   - else
     tr.empty-row
       td.text-left colspan='4'
