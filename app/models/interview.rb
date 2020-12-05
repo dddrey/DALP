@@ -6,7 +6,7 @@ class Interview < ApplicationRecord
   before_save :generate_zoom_room, if: -> { user_id_was.nil? && user_id.present? }
 
   def generate_zoom_room
-    ZoomService.new(expert_id, user_id, id).call
+    ZoomService.new(expert_id, user_id, id).call if Rails.env.production?
   end
 
   def reset

@@ -12,6 +12,13 @@
   div style='margin-bottom: 5px;' == "<strong>Откуда узнали:</strong> #{@user.competition_source}"
   div style='margin-bottom: 5px;' == "<strong>Закончил:</strong> #{@questions.where(answered: true).count} из 100"
   div style='margin-bottom: 5px;' == "<strong>Результат:</strong> #{@questions.where(answered_right: true).count} из 100"
+  - if @interview.present?
+    div style='margin-bottom: 5px;' == "<strong>Интервью:</strong> #{@interview.date_string} в #{@interview.time_string} с #{@interview.expert.get_name}"
+    div style='margin-bottom: 5px;' == "<strong>Общий бал:</strong> #{@user.total_score}"
+    div style='margin-bottom: 5px;'
+      strong == "Файл с оценкой: "
+      - if @user.expert_review_doc.url.present?
+        = link_to 'Файл', @user.expert_review_doc.url, target: '_blank', style: 'text-decoration: underline;'
   br
   = simple_form_for '', url: admin_user_path(@user), method: :delete do |f|
     .cancel-button

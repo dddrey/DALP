@@ -1,7 +1,10 @@
 class Admin::UsersController < AdminController
   def index
     @users = if params[:second_stage].present?
-      User.where(second_stage: true)
+      # User.where(second_stage: true)
+      with_interview = User.where(second_stage: true).joins(:interview).order('interviews.datetime_stamp asc')
+      without_interview = User.where(second_stage: true).includes(:interview).where(interviews: { user_id: nil })
+      with_interview + without_interview
     else
       User.order(id: :desc)
     end
@@ -10,6 +13,7 @@ class Admin::UsersController < AdminController
   def test
     @user = User.find(params[:id])
     @test = @user.test
+    @interview = @user.interview
     @questions = @test.questions.order(order: :asc)
   end
 
@@ -28,7 +32,7 @@ class Admin::UsersController < AdminController
   def interview_reset
     user = User.find(params[:id])
     interview = user.interview
-    interview.reset
+    interview.reset if Rails.env.production?
 
     flash[:notice] = 'Интервью обнулено'
     redirect_to test_admin_user_path(user)

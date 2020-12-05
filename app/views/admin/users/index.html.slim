@@ -34,7 +34,7 @@
         td = user.city.truncate_words(3)
         td = user.arab_relatives? ? 'Да' : 'Нет'
         - if params[:second_stage].present?
-          td = user.interview.present? ? '+' : '–'
+          td = user.interview.present? ? "#{user.interview.date_string} в #{user.interview.time_string} с #{user.interview.expert.get_name}" : '–'
         / td = user.education
         / td = user.arab_study
         / td = user.social_links
