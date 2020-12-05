@@ -19,6 +19,8 @@
       strong == "Файл с оценкой: "
       - if @user.expert_review_doc.url.present?
         = link_to 'Файл', @user.expert_review_doc.url, target: '_blank', style: 'text-decoration: underline;'
+    - if @user.interview_cancel.present?
+      div style='margin-bottom: 5px;' == "<strong>Отказ от интервью:</strong> #{@user.interview_cancel}"
   br
   = simple_form_for '', url: admin_user_path(@user), method: :delete do |f|
     .cancel-button
