@@ -38,6 +38,10 @@ class User < ApplicationRecord
     SecondStageMailer.email(self.id).deliver
   end
 
+  def send_first_stage_score_email
+    SecondStageMailer.first_stage_score_email(self.id)
+  end
+
   def send_thanks_email
     SecondStageMailer.thanks_email(self.id).deliver
   end
