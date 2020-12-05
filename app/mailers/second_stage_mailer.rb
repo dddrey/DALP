@@ -32,4 +32,15 @@ class SecondStageMailer < ApplicationMailer
       format.html
     end
   end
+
+  def first_stage_score_email(user_id)
+    @user = User.find(user_id)
+
+    mail(   :to      => @user.email,
+            :subject => "Doha Prize 2020 | Результаты первого этапа"
+    ) do |format|
+      format.text
+      format.html
+    end
+  end
 end
