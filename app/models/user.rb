@@ -39,7 +39,7 @@ class User < ApplicationRecord
   end
 
   def send_first_stage_score_email
-    SecondStageMailer.first_stage_score_email(self.id)
+    SecondStageMailer.first_stage_score_email(self.id).deliver
   end
 
   def send_thanks_email
