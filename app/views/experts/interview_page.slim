@@ -19,12 +19,12 @@ h2 style='text-transform: initial; font-size: 20px;' == "Интервью с #{@
   div == "<strong>Оценка:</strong>"
   = simple_form_for @user, url: "/expert/interviews/#{@interview.id}", method: :put do |f|
     .form-group class=('has-error' if @user.errors[:total_score].any?)
-      = f.label 'Общий бал'
+      = f.label 'Общий балл'
       .col-sm-8
         = f.input :total_score, label: false
     br
     .form-group class=('has-error' if @user.errors[:middle_score].any?)
-      = f.label 'Средний бал'
+      = f.label 'Средний балл'
       .col-sm-8
         = f.input :middle_score, label: false
     br

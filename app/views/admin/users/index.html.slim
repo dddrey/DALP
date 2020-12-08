@@ -20,9 +20,9 @@
       th.text-left Закончил
     th.text-left Результат
     - if params[:second_stage].present?
-      th.text-left Общий бал
+      th.text-left Общий балл
     - if params[:second_stage].present?
-      th.text-left Средний бал
+      th.text-left Средний балл
 
 - content_for :table_body do
   - if @users.any?
