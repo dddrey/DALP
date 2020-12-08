@@ -23,6 +23,8 @@
       th.text-left Общий балл
     - if params[:second_stage].present?
       th.text-left Средний балл
+    - if params[:second_stage].present?
+      th.text-left Оценка
 
 - content_for :table_body do
   - if @users.any?
@@ -61,6 +63,8 @@
           td = user.total_score
         - if params[:second_stage].present?
           td = user.middle_score
+        - if params[:second_stage].present?
+          td = link_to 'Файл', user.expert_review_doc.url, target: '_blank', style: 'text-decoration: underline;'
   - else
     tr.empty-row
       td.text-left colspan='4'
