@@ -20,9 +20,10 @@
       th.text-left Закончил
     th.text-left Результат
     - if params[:second_stage].present?
-      th.text-left Общий балл
+      th.text-left
+        strong Средний балл
     - if params[:second_stage].present?
-      th.text-left Средний балл
+      th.text-left Общий балл
     - if params[:second_stage].present?
       th.text-left Оценка
 
@@ -30,7 +31,7 @@
   - if @users.any?
     - @users.each_with_index do |user, index|
       - test = user.test
-      tr style="#{user.second_stage? ? user.interview_cancel? ? 'background-color: grey;' : 'background-color: wheat;' : ''}"
+      tr style="#{user.second_stage? ? user.interview_cancel? ? 'background: grey;' : user.middle_score.present? && user.middle_score.to_i > 85 ? 'background: #2ebb2e;' : 'background: wheat;' : ''}"
         - if test.present?
           td = link_to user.full_name, test_admin_user_path(user.id), style: 'text-decoration: underline;'
         - else
@@ -60,9 +61,9 @@
         - else
           td –
         - if params[:second_stage].present?
-          td = user.total_score
-        - if params[:second_stage].present?
           td = user.middle_score
+        - if params[:second_stage].present?
+          td = user.total_score
         - if params[:second_stage].present?
           td = link_to 'Файл', user.expert_review_doc.url, target: '_blank', style: 'text-decoration: underline;'
   - else
