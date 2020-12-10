@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root to: 'homepage#index'
   get '/en', to: 'homepage#en'
   get '/arab', to: 'homepage#arab'
+  get '/second_stage_results', to: 'homepage#second_stage_results'
 
   get '/registration', to: 'registration#new'
   get '/registration/finished', to: 'registration#finished'

@@ -2,11 +2,9 @@ class HomepageController < ApplicationController
   def index
   end
 
-  def en
+  def en; end
 
-  end
+  def arab; end
 
-  def arab
-
-  end
+  def second_stage_results; end
 end
