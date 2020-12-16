@@ -14,4 +14,8 @@ class SecondStagePreview < ActionMailer::Preview
     SecondStageMailer.first_stage_score_email(454)
   end
 
+  def final_email
+    SecondStageMailer.final_email(454)
+  end
+
 end
