@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/en', to: 'homepage#en'
   get '/arab', to: 'homepage#arab'
   get '/second_stage_results', to: 'homepage#second_stage_results'
+  get '/finalists', to: 'homepage#finalists'
 
   get '/registration', to: 'registration#new'
   get '/registration/finished', to: 'registration#finished'
